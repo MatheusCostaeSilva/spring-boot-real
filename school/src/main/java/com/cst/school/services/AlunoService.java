@@ -25,7 +25,7 @@ public class AlunoService {
     }
 
     public void deletarAluno(Long id){
-        alunoRepositore.deleteById(id);.log
+        alunoRepositore.deleteById(id);
 
     }
 }
