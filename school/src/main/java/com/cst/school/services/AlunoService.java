@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class AlunoService {
@@ -28,4 +29,16 @@ public class AlunoService {
         alunoRepositore.deleteById(id);
 
     }
+
+    public Optional< AlunoModel> buscarId(Long id){
+        return alunoRepositore.findById(id);
+    }
+
+    public AlunoModel atualizarAluno(Long id, AlunoModel alunoModel){
+        AlunoModel newAluno = alunoRepositore.findById(id).get();
+        newAluno.setNome(alunoModel.getNome());
+        return alunoRepositore.save(newAluno);
+    }
+
+
 }
